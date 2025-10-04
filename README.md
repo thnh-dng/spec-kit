@@ -210,12 +210,35 @@ After running `specify init`, your AI coding agent will have access to these sla
 | Command         | Description                                                           |
 |-----------------|-----------------------------------------------------------------------|
 | `/constitution` | Create or update project governing principles and development guidelines |
+| `/review-spec`  | Analyze complex requirement documents and break them into smaller, manageable features |
 | `/specify`      | Define what you want to build (requirements and user stories)        |
 | `/clarify`      | Clarify underspecified areas (must be run before `/plan` unless explicitly skipped; formerly `/quizme`) |
 | `/plan`         | Create technical implementation plans with your chosen tech stack     |
 | `/tasks`        | Generate actionable task lists for implementation                     |
 | `/analyze`      | Cross-artifact consistency & coverage analysis (run after /tasks, before /implement) |
 | `/implement`    | Execute all tasks to build the feature according to the plan         |
+
+### Enhanced Workflow for Complex Requirements
+
+For complex projects with extensive requirements, use this structured workflow:
+
+```
+/constitution → /review-spec → /specify (for each feature) → /plan → /tasks → /implement
+```
+
+**When to use `/review-spec`**:
+- Large requirement documents (>50 requirements)
+- Complex business domains with multiple functional areas
+- Projects requiring multiple features with dependencies
+- Enterprise applications with integration points
+- Legacy system modernization with phased approach
+
+**Note**: `/review-spec` works in the current branch and creates analysis files without creating new branches.
+
+**Traditional workflow** (for simpler features):
+```
+/constitution → /specify → /plan → /tasks → /implement
+```
 
 ### Environment Variables
 
@@ -344,7 +367,7 @@ Go to the project folder and run your AI agent. In our example, we're using `cla
 
 ![Bootstrapping Claude Code environment](./media/bootstrap-claude-code.gif)
 
-You will know that things are configured correctly if you see the `/constitution`, `/specify`, `/plan`, `/tasks`, and `/implement` commands available.
+You will know that things are configured correctly if you see the `/constitution`, `/review-spec`, `/specify`, `/plan`, `/tasks`, and `/implement` commands available.
 
 The first step should be establishing your project's governing principles using the `/constitution` command. This helps ensure consistent decision-making throughout all subsequent development phases:
 
@@ -354,7 +377,29 @@ The first step should be establishing your project's governing principles using 
 
 This step creates or updates the `.specify/memory/constitution.md` file with your project's foundational guidelines that the AI agent will reference during specification, planning, and implementation phases.
 
-### **STEP 2:** Create project specifications
+### **STEP 2A:** For Complex Requirements - Use `/review-spec` *(Optional but Recommended)*
+
+If you have complex requirements or large project scopes, use the `/review-spec` command to analyze and break them down into manageable features:
+
+```text
+/review-spec We need to build a comprehensive e-commerce platform with user management, product catalog, shopping cart, order processing, payment integration, inventory management, reporting, and admin dashboard. The system should support multiple payment gateways, handle thousands of concurrent users, and integrate with external shipping APIs.
+```
+
+This command will:
+- Analyze the complex requirements and identify functional areas
+- Break down the project into logical, manageable features
+- Map dependencies and relationships between features
+- Create an implementation roadmap and sequencing recommendations
+- Generate feature stubs ready for `/specify` processing
+
+**Output includes**:
+- Analysis report with feature breakdown and dependency mapping (created in `specs/complex-requirements-analysis-[TIMESTAMP]/`)
+- Individual feature descriptions ready for `/specify`
+- Implementation sequencing recommendations
+- Risk assessment and mitigation strategies
+- All files created in the current branch context
+
+### **STEP 2B:** Create project specifications
 
 With your project principles established, you can now create the functional specifications. Use the `/specify` command and then provide the concrete requirements for the project you want to develop.
 
