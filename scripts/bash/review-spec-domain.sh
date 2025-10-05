@@ -63,7 +63,7 @@ fi
 
 # Create timestamp-based analysis directory to avoid conflicts
 TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
-ANALYSIS_NAME=$(echo "$REQUIREMENT_INPUT" | head -c 30 | tr '[:upper:]' '[:lower:] | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g' | sed 's/^-//' | sed 's/-$//')
+ANALYSIS_NAME=$(echo "$REQUIREMENT_INPUT" | head -c 30 | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g' | sed 's/^-//' | sed 's/-$//')
 if [ -z "$ANALYSIS_NAME" ]; then
     ANALYSIS_NAME="complex-requirements"
 fi
