@@ -1,5 +1,19 @@
 ---
 description: Create or update the project constitution from interactive or provided principle inputs, ensuring all dependent templates stay in sync.
+scripts:
+  sh: scripts/bash/check-prerequisites.sh --json --memory-check
+  ps: scripts/powershell/check-prerequisites.ps1 -Json -MemoryCheck
+mcp_integration:
+  pre_constitution:
+    - query: "existing project constitution patterns and governance models"
+    - query: "organizational principles and best practices"
+  post_constitution:
+    - ingest: "updated constitution document"
+    - ingest_spec: "governance principles and decision frameworks"
+knowledge_enrichment:
+  governance_models: true
+  principle_extraction: true
+  compliance_frameworks: true
 ---
 
 The user input to you can be provided directly by the agent or as a command argument - you **MUST** consider it before proceeding with the prompt (if not empty).

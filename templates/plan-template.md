@@ -1,8 +1,22 @@
 ---
-description: "Implementation plan template for feature development"
+description: "Implementation plan template for feature development with MCP integration"
 scripts:
   sh: scripts/bash/update-agent-context.sh __AGENT__
   ps: scripts/powershell/update-agent-context.ps1 -AgentType __AGENT__
+mcp_integration:
+  pre_planning:
+    - query: "technical implementation patterns and architecture decisions"
+    - query: "similar features technology stack and design choices"
+    - query: "data model patterns and entity relationships"
+  post_planning:
+    - ingest: "complete implementation plan document"
+    - ingest_spec: "technical decisions and architecture patterns"
+    - ingest_spec: "data models and API contracts"
+knowledge_enrichment:
+  architecture_patterns: true
+  technology_decisions: true
+  data_modeling: true
+  api_design: true
 ---
 
 # Implementation Plan: [FEATURE]

@@ -3,6 +3,19 @@ description: Generate an actionable, dependency-ordered tasks.md for the feature
 scripts:
   sh: scripts/bash/check-prerequisites.sh --json
   ps: scripts/powershell/check-prerequisites.ps1 -Json
+mcp_integration:
+  pre_task_generation:
+    - query: "task decomposition patterns for similar features"
+    - query: "implementation task structures and dependencies"
+    - query: "best practices for task organization and sequencing"
+  post_task_generation:
+    - ingest: "generated task list and dependencies"
+    - ingest_spec: "task decomposition patterns and decisions"
+knowledge_enrichment:
+  task_patterns: true
+  dependency_mapping: true
+  sequencing_strategies: true
+  parallel_execution: true
 ---
 
 The user input to you can be provided directly by the agent or as a command argument - you **MUST** consider it before proceeding with the prompt (if not empty).

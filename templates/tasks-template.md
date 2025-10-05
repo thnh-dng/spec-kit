@@ -2,32 +2,51 @@
 
 **Input**: Design documents from `/specs/[###-feature-name]/`
 **Prerequisites**: plan.md (required), research.md, data-model.md, contracts/
+**Knowledge Enhancement**: [Leveraged task patterns and decomposition strategies]
 
 ## Execution Flow (main)
 ```
-1. Load plan.md from feature directory
+1. **MCP Knowledge Base Query**
+   → Query: "task decomposition patterns for similar features"
+   → Query: "implementation task structures and dependencies"
+   → Query: "best practices for task organization and sequencing"
+
+2. Load plan.md from feature directory
    → If not found: ERROR "No implementation plan found"
    → Extract: tech stack, libraries, structure
-2. Load optional design documents:
+   → **MCP Enhancement**: Cross-reference with implementation patterns
+
+3. Load optional design documents:
    → data-model.md: Extract entities → model tasks
    → contracts/: Each file → contract test task
    → research.md: Extract decisions → setup tasks
-3. Generate tasks by category:
+   → **MCP Enhancement**: Leverage similar task patterns
+
+4. Generate tasks by category:
    → Setup: project init, dependencies, linting
    → Tests: contract tests, integration tests
    → Core: models, services, CLI commands
    → Integration: DB, middleware, logging
    → Polish: unit tests, performance, docs
-4. Apply task rules:
+   → **MCP Enhancement**: Apply proven task decomposition patterns
+
+5. Apply task rules:
    → Different files = mark [P] for parallel
    → Same file = sequential (no [P])
    → Tests before implementation (TDD)
-5. Number tasks sequentially (T001, T002...)
-6. Generate dependency graph
-7. Create parallel execution examples
-8. Validate task completeness:
+   → **MCP Enhancement**: Use optimal sequencing strategies
+
+6. Number tasks sequentially (T001, T002...)
+7. Generate dependency graph
+8. Create parallel execution examples
+9. Validate task completeness:
    → All contracts have tests?
    → All entities have models?
+
+10. **MCP Knowledge Base Ingestion**
+    → Ingest: "generated task list and dependencies"
+    → Ingest: "task decomposition patterns and decisions"
+```
    → All endpoints implemented?
 9. Return: SUCCESS (tasks ready for execution)
 ```

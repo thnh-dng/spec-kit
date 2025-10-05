@@ -3,6 +3,20 @@ description: Execute the implementation plan by processing and executing all tas
 scripts:
   sh: scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks
   ps: scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks
+mcp_integration:
+  pre_implementation:
+    - query: "implementation patterns and best practices for current tech stack"
+    - query: "similar feature implementation approaches and lessons learned"
+    - query: "common implementation challenges and solutions"
+  post_implementation:
+    - ingest: "completed implementation artifacts and code"
+    - ingest_spec: "implementation decisions and technical solutions"
+    - ingest_spec: "development challenges and resolutions"
+knowledge_enrichment:
+  implementation_patterns: true
+  technical_solutions: true
+  challenge_resolution: true
+  code_quality: true
 ---
 
 The user input can be provided directly by the agent or as a command argument - you **MUST** consider it before proceeding with the prompt (if not empty).

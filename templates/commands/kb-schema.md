@@ -3,10 +3,20 @@ description: Display and analyze the knowledge base schema including entities, r
 scripts:
   sh: scripts/bash/knowledge-schema.sh --json "{ARGS}"
   ps: scripts/powershell/knowledge-schema.ps1 -Json "{ARGS}"
-mcp_tools:
-  - schema
-  - stats
-  - query
+mcp_integration:
+  pre_schema_analysis:
+    - query: "knowledge base schema structure and entity relationships"
+    - query: "domain patterns and architectural frameworks"
+    - schema: "complete knowledge graph structure"
+    - stats: "knowledge base growth metrics and patterns"
+  post_schema_analysis:
+    - ingest: "schema analysis results and insights"
+    - ingest_spec: "domain intelligence and architectural patterns"
+knowledge_enrichment:
+  schema_analysis: true
+  pattern_recognition: true
+  domain_intelligence: true
+  architectural_frameworks: true
 usage_examples:
   - "Show me the current knowledge base structure"
   - "What entities and relationships exist in the e-commerce domain?"

@@ -3,6 +3,19 @@ description: Perform a non-destructive cross-artifact consistency and quality an
 scripts:
   sh: scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks
   ps: scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks
+mcp_integration:
+  pre_analysis:
+    - query: "cross-artifact consistency patterns and quality issues"
+    - query: "specification plan task alignment best practices"
+    - schema: "quality analysis frameworks and patterns"
+  post_analysis:
+    - ingest: "analysis results and recommendations"
+    - ingest_spec: "identified consistency issues and resolutions"
+knowledge_enrichment:
+  quality_patterns: true
+  consistency_validation: true
+  issue_resolution: true
+  best_practices: true
 ---
 
 The user input to you can be provided directly by the agent or as a command argument - you **MUST** consider it before proceeding with the prompt (if not empty).

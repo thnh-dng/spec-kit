@@ -3,6 +3,19 @@ description: Identify underspecified areas in the current feature spec by asking
 scripts:
    sh: scripts/bash/check-prerequisites.sh --json --paths-only
    ps: scripts/powershell/check-prerequisites.ps1 -Json -PathsOnly
+mcp_integration:
+  pre_clarification:
+    - query: "common specification ambiguities and resolution patterns"
+    - query: "similar feature clarification examples and best practices"
+    - schema: "clarification taxonomy and resolution frameworks"
+  post_clarification:
+    - ingest: "clarification session results and resolved ambiguities"
+    - ingest_spec: "specification improvements and clarification patterns"
+knowledge_enrichment:
+  ambiguity_resolution: true
+  clarification_patterns: true
+  requirement_refinement: true
+  domain_context: true
 ---
 
 The user input to you can be provided directly by the agent or as a command argument - you **MUST** consider it before proceeding with the prompt (if not empty).

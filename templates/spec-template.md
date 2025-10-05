@@ -1,28 +1,50 @@
 # Feature Specification: [FEATURE NAME]
 
-**Feature Branch**: `[###-feature-name]`  
-**Created**: [DATE]  
-**Status**: Draft  
+**Feature Branch**: `[###-feature-name]`
+**Created**: [DATE]
+**Status**: Draft
 **Input**: User description: "$ARGUMENTS"
+**Knowledge Enhancement**: [Leveraged domain intelligence and patterns]
 
 ## Execution Flow (main)
 ```
-1. Parse user description from Input
+1. **MCP Knowledge Base Query**
+   → Query: "existing {domain} entities relationships business rules"
+   → Query: "similar features implementation patterns requirements"
+   → Get schema context for domain model structure
+
+2. Parse user description from Input
    → If empty: ERROR "No feature description provided"
-2. Extract key concepts from description
+
+3. Extract key concepts from description
    → Identify: actors, actions, data, constraints
-3. For each unclear aspect:
+   → **MCP Enhancement**: Cross-reference with existing domain intelligence
+
+4. For each unclear aspect:
    → Mark with [NEEDS CLARIFICATION: specific question]
-4. Fill User Scenarios & Testing section
+   → **MCP Enhancement**: Use knowledge base to suggest clarifications
+
+5. Fill User Scenarios & Testing section
    → If no clear user flow: ERROR "Cannot determine user scenarios"
-5. Generate Functional Requirements
+   → **MCP Enhancement**: Leverage similar feature user journeys
+
+6. Generate Functional Requirements
    → Each requirement must be testable
    → Mark ambiguous requirements
-6. Identify Key Entities (if data involved)
-7. Run Review Checklist
+   → **MCP Enhancement**: Suggest requirements based on domain patterns
+
+7. Identify Key Entities (if data involved)
+   → **MCP Enhancement**: Reference existing entities and relationships
+
+8. **MCP Knowledge Base Ingestion**
+   → Ingest complete specification
+   → Ingest extracted entities and relationships
+
+9. Run Review Checklist
    → If any [NEEDS CLARIFICATION]: WARN "Spec has uncertainties"
    → If implementation details found: ERROR "Remove tech details"
-8. Return: SUCCESS (spec ready for planning)
+
+10. Return: SUCCESS (spec ready for planning)
 ```
 
 ---
